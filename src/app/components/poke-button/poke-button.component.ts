@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { GptPokeApiService } from '@services/gpt-poke-api.service';
 
 @Component({
   selector: 'app-poke-button',
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule],
   templateUrl: './poke-button.component.html',
   styleUrl: './poke-button.component.css',
 })

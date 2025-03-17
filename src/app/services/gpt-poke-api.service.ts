@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class GptPokeApiService {
-  private apiUrl = 'https://api.openai.com/v1/completions'; // URL de la API de OpenAI
+  private apiUrl = 'https://api.openai.com/v1/chat/completions'; // URL de la API de OpenAI
   private apiKey =
     '';
 
@@ -17,12 +17,15 @@ export class GptPokeApiService {
   getChatGptResponse(prompt: string): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.apiKey}`,
+      Authorization: `Bearer ${this.apiKey}`,
     });
 
     const body = {
-      model: 'text-davinci-003', // El modelo de GPT-3 o GPT-4
-      prompt: prompt,
+      model: 'gpt-3.5-turbo',
+      messages: [
+        { role: 'developer', content: 'You are a helpful assistant.' },
+        { role: 'user', content: prompt },
+      ],
       max_tokens: 100, // Número de tokens (palabras) en la respuesta
       temperature: 0.7, // Nivel de aleatoriedad en las respuestas
     };
