@@ -1,3 +1,8 @@
 <div>
   <button id="poke-button" (click)="getPokeDato()">Mostrar Poke Dato</button>
+  <br>
+  <div *ngIf="response">
+    <h3>Respuesta de ChatGPT:</h3>
+    <p>{{ response }}</p>
+  </div>
 </div>

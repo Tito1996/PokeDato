@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class GptPokeApiService {
   private apiUrl = 'https://api.openai.com/v1/completions'; // URL de la API de OpenAI
-  private apiKey = 'YOUR_API_KEY'; // Aquí debes poner tu clave de API
+  private apiKey =
+    '';
 
   constructor(private http: HttpClient) {}
 
@@ -16,7 +17,7 @@ export class GptPokeApiService {
   getChatGptResponse(prompt: string): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${this.apiKey}`,
+      'Authorization': `Bearer ${this.apiKey}`,
     });
 
     const body = {
